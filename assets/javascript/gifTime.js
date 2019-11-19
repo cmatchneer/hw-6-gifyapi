@@ -1,7 +1,21 @@
 $(document).ready(function() {
     var gif = ["borderlands", "video games", "funny"];
+    var loopNum = 1
 
 
+    $("input[name='oneGif'").change(function() {
+        loopNum = 1;
+        console.log(loopNum);
+    })
+    $("input[name='fiveGifs'").change(function() {
+        loopNum = 5;
+        console.log(loopNum);
+
+    })
+    $("input[name='tenGifs'").change(function() {
+        loopNum = 10;
+        console.log(loopNum);
+    })
 
     function gifButtons() {
         $("#buttonStorage").empty();
@@ -15,6 +29,7 @@ $(document).ready(function() {
         }
 
     }
+
     $("#searchButton").on("click", function(event) {
 
         event.preventDefault();
@@ -27,17 +42,21 @@ $(document).ready(function() {
 
 
     function showGif() {
+        $("#theGifZone").empty();
         var gifName = $(this).attr("id");
-        var gifQuery = "api.giphy.com/v1/gifs/search=" + gifName + "api_key=2znudAKEpDGbTyV173LdReFY2eDeUdkJ"
+        var gifQuery = "https://api.giphy.com/v1/gifs/search?q=" + gifName +
+            "&api_key=2znudAKEpDGbTyV173LdReFY2eDeUdkJ&limit=" + loopNum;
         $.ajax({
             url: gifQuery,
             method: "GET"
         }).then(function(response) {
             console.log(response);
-            var theGif = $("<img>");
-            theGif.attr("src", response.data.images.fixed_height.url);
+            for (var i = 0; i < loopNum; i++) {
+                var theGif = $("<img>");
+                theGif.attr("src", response.data[i].images.original.url);
 
-            $("#theGifZone").html(theGif);
+                $("#theGifZone").append(theGif);
+            }
         })
     }
 

@@ -31,20 +31,25 @@
     <div class="row">
         <div class="col-md-4">
             <form id="gif-form">
-                <label for="userInput">Look Up a GIF</label>
+                <label for="userInput">Choose the type of gifs</label>
                 <input type="text" id="gifInput">
                 <br>
-                <input id="searchButton" type="submit" value="Lets Look up Some gifs">
             </form>
+            <form id="gifNum">
+                <input id="searchButton" type="submit" value="Add your gif choose to the wall"><br>
+                <input type="radio" name="oneGif" id="getOneGif" value="Get 1 gif" checked>Get 1 gif<br>
+                <input type="radio" name="fiveGifs" id="getFiveGifs" value="Get 5 gifs">Get 5 gifs<br>
+                <input type="radio" name="tenGifs" id="getTenGifs" value="Get 10 gifs">Get 10 gifs<br>
             </form>
+
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <div id="theGifZone"></div>
+    <div class=" row ">
+
+        <div class="col-md-12 ">
+            <div id="theGifZone "></div>
         </div>
-        <div class="col-md-4"></div>
+
     </div>
 
 </body>
