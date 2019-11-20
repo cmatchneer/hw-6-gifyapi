@@ -1,29 +1,29 @@
 $(document).ready(function() {
-    var gif = ["borderlands", "video games", "funny"];
+    var starterGifs = ["borderlands", "video games", "funny"];
     var loopNum = 1
 
 
-    $("input[name='oneGif'").change(function() {
+    $("#getOneGif").change(function() {
         loopNum = 1;
         console.log(loopNum);
     })
-    $("input[name='fiveGifs'").change(function() {
-        loopNum = 5;
+    $("#getThreeGifs").change(function() {
+        loopNum = 3;
         console.log(loopNum);
 
     })
-    $("input[name='tenGifs'").change(function() {
-        loopNum = 10;
+    $("#getFiveGifs").change(function() {
+        loopNum = 5;
         console.log(loopNum);
     })
 
     function gifButtons() {
         $("#buttonStorage").empty();
-        for (var i = 0; i < gif.length; i++) {
+        for (var i = 0; i < starterGifs.length; i++) {
             var gifButton = $("<button>");
             gifButton.addClass("gif-btn");
-            gifButton.attr("id", gif[i]);
-            gifButton.text(gif[i]);
+            gifButton.attr("id", starterGifs[i]);
+            gifButton.text(starterGifs[i]);
             $("#buttonStorage").append(gifButton);
 
         }
@@ -33,12 +33,13 @@ $(document).ready(function() {
     $("#searchButton").on("click", function(event) {
 
         event.preventDefault();
-        // This line grabs the input from the textbox
+
         var userGif = $("#gifInput").val().trim();
         gif.push(userGif);
-        console.log(userGif);
+
         gifButtons();
     });
+
 
 
     function showGif() {
@@ -52,14 +53,35 @@ $(document).ready(function() {
         }).then(function(response) {
             console.log(response);
             for (var i = 0; i < loopNum; i++) {
+                var gifStorage = $("<div>");
                 var theGif = $("<img>");
-                theGif.attr("src", response.data[i].images.original.url);
+                var rating = $("<p>");
+                rating.text(response.data[i].rating);
+                theGif.addClass("gif");
+                theGif.attr("src", response.data[i].images.original_still.url);
+                theGif.attr("stillGif", response.data[i].images.original_still.url);
+                theGif.attr("animatedGif", response.data[i].images.original.url);
+                theGif.attr("currentstate", "still");
+                gifStorage.append(theGif);
+                gifStorage.prepend(rating);
 
-                $("#theGifZone").append(theGif);
+                $("#theGifZone").append(gifStorage);
             }
         })
     }
 
+    function moveThatGif() {
+        var state = $(this).attr("currentstate");
+        console.log(state);
+        console.log("test");
+    }
+    $(".gif").on("click", function() {
+        moveThatGif();
+
+    });
+
+
     $(document).on("click", ".gif-btn", showGif);
     gifButtons();
+
 })
