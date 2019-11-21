@@ -18,7 +18,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Let's Find you Some GIFS</h1>
-            <p class="lead">Below is a list of buttons that get you some gifs you can also make a button and use that to search for your own gifs </p>
+            <p class="lead">Below is a list of buttons that get you some gifs you can also make a button and use that to search for your own gifs you can also save your favorite gifs as well good hunting </p>
         </div>
     </div>
     <div class="row">
@@ -35,8 +35,10 @@
                 <input type="text" id="gifInput">
                 <br>
             </form>
-            <form id="gifNum">
+            <form>
                 <input id="searchButton" type="submit" value="Add your gif choose to the wall"><br>
+            </form>
+            <form id="gifNum">
                 <input class="multiGif" type="radio" name="gifNum" id="getOneGif" value="Get 1 gif" checked>Get 1 gif<br>
                 <input class="multiGif" type="radio" name="gifNum" id="getThreeGifs" value="Get 3 gifs">Get 3 gifs<br>
                 <input class="multiGif" type="radio" name="gifNum" id="getFiveGifs" value="Get 5 gifs">Get 5 gifs<br>
@@ -47,12 +49,14 @@
     <div class=" row ">
 
         <div class="col-md-6">
-            <div id="theGifZone">
+            <p class="areaTitles">The Gifs</p>
+            <div class="storageDiv" id="theGifZone">
 
             </div>
         </div>
         <div class="col-md-6">
-            <div id="userFav">
+            <p class="areaTitles">Your Favorite Gifs</p>
+            <div class="storageDiv" id="userFav">
 
             </div>
         </div>

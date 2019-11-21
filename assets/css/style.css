@@ -1,3 +1,7 @@
+body {
+    background-color: darkcyan;
+}
+
 p {
     text-align: center;
     border: 1px solid firebrick;
@@ -16,7 +20,22 @@ button:focus {
     outline: 0;
 }
 
+.areaTitles {
+    background-color: firebrick;
+    color: gold;
+    border: 2px solid gold;
+    margin: 0
+}
+
+.jumbotron {
+    text-align: center;
+    margin: 0;
+    background-color: darkred;
+    color: gold;
+}
+
 .storage {
+    margin: 0 auto;
     position: relative;
     width: 400px;
     height: 400px;
@@ -59,14 +78,10 @@ button:focus {
     background-color: firebrick;
     color: gold;
     border: 2px solid goldenrod;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-left: 10px;
-    margin-top: -10px;
+    margin-top: 10px;
     box-shadow: 0 5px 5px black;
-}
-
-.gifNum {
-    background-color: black;
 }
 
 .gif-btn:hover {
@@ -99,4 +114,23 @@ button:focus {
 #searchButton:active {
     box-shadow: 0 0px 5px black;
     transform: translateY(5px);
+}
+
+#gifNum {
+    background-color: firebrick;
+    color: gold;
+    border: 2px solid gold;
+    width: 110px;
+    padding-left: 3px;
+    display: block;
+    position: relative;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+.storageDiv {
+    background-color: darkred;
+    border-left: 2px solid gold;
+    border-right: 2px solid gold;
 }
