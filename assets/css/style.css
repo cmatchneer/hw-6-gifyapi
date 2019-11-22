@@ -96,6 +96,14 @@ button:focus {
     transform: translateY(5px);
 }
 
+.storageDiv {
+    position: relative;
+    background-color: darkred;
+    border-left: 2px solid gold;
+    border-right: 2px solid gold;
+    border-bottom: 2px solid gold;
+}
+
 #searchButton {
     color: gold;
     border: 2px solid goldenrod;
@@ -129,8 +137,24 @@ button:focus {
     cursor: pointer;
 }
 
-.storageDiv {
-    background-color: darkred;
-    border-left: 2px solid gold;
-    border-right: 2px solid gold;
+#favRemoveBtnStorage {
+    position: relative;
+}
+
+#clearFav {
+    position: absolute;
+    top: 115px;
+    left: 460px;
+    background-color: firebrick;
+    color: gold;
+    border: 2px solid goldenrod;
+    text-align: center;
+    margin: 10px auto;
+    margin-top: 10px;
+    box-shadow: 0 5px 5px black;
+}
+
+#clearFav:active {
+    box-shadow: 0 0px 5px black;
+    transform: translateY(5px);
 }

@@ -24,6 +24,7 @@ $(document).ready(function() {
     $(document).on("click", ".gif-btn", showGif);
     $(document).on("click", ".gif", moveThatGif);
     $(document).on("click", ".favBtn", favThatGif);
+    $(document).on("click", "#clearFav", removeFav);
 
     // all the functions 
     function gifButtons() {
@@ -99,6 +100,11 @@ $(document).ready(function() {
         $("#userFav").append(favDiv);
         // $(favDiv).remove();
         this.remove();
+    }
+
+    function removeFav() {
+        console.log("test");
+        $("#userFav").empty();
     }
 
     gifButtons();
