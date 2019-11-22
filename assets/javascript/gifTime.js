@@ -1,9 +1,11 @@
 $(document).ready(function() {
     //univeral vars
     var starterGifs = ["borderlands", "call of duty", "world of warcraft"];
+    // localStorage.clear();
+    // localStorage.setItem("saveGif", starterGifs);
     var loopNum = 1
-    localStorage.getItem("savGif");
-    //radio buttons
+        // $("#buttonStorage").append(localStorage.getItem("saveGif").split(","));
+        //radio buttons
     $("#getOneGif").change(function() {
         loopNum = 1;
     })
@@ -21,6 +23,7 @@ $(document).ready(function() {
         starterGifs.push(userGif);
         localStorage.clear();
         localStorage.setItem("saveGif", starterGifs);
+        // console.log(localStorage.getItem("saveGif").split(",")[0]);
         gifButtons();
     });
     //call the gifs move the gifs and fav the gifs buttons
@@ -32,11 +35,11 @@ $(document).ready(function() {
     // all the functions 
     function gifButtons() {
         $("#buttonStorage").empty();
-        for (var i = 0; i < starterGifs.length; i++) {
+        for (var i = 0; i < localStorage.getItem("saveGif").split(",").length; i++) {
             var gifButton = $("<button>");
             gifButton.addClass("gif-btn");
-            gifButton.attr("id", starterGifs[i]);
-            gifButton.text(starterGifs[i]);
+            gifButton.attr("id", localStorage.getItem("saveGif").split(",")[i]);
+            gifButton.text(localStorage.getItem("saveGif").split(",")[i]);
             $("#buttonStorage").append(gifButton);
 
         }

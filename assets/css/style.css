@@ -152,6 +152,14 @@ button:focus {
     margin: 10px auto;
     margin-top: 10px;
     box-shadow: 0 5px 5px black;
+    cursor: pointer;
+}
+
+#clearFav:hover {
+    cursor: pointer;
+    background-color: gold;
+    color: firebrick;
+    border: 2px solid firebrick;
 }
 
 #clearFav:active {
