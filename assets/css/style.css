@@ -144,7 +144,7 @@ button:focus {
 #clearFav {
     position: absolute;
     top: 115px;
-    left: 460px;
+    left: 480px;
     background-color: firebrick;
     color: gold;
     border: 2px solid goldenrod;

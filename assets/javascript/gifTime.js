@@ -2,7 +2,8 @@ $(document).ready(function() {
     //univeral vars
     var starterGifs = ["borderlands", "call of duty", "world of warcraft"];
     var loopNum = 1
-        //radio buttons
+    localStorage.getItem("savGif");
+    //radio buttons
     $("#getOneGif").change(function() {
         loopNum = 1;
     })
@@ -18,6 +19,8 @@ $(document).ready(function() {
         event.preventDefault();
         var userGif = $("#gifInput").val().trim();
         starterGifs.push(userGif);
+        localStorage.clear();
+        localStorage.setItem("saveGif", starterGifs);
         gifButtons();
     });
     //call the gifs move the gifs and fav the gifs buttons
