@@ -1,10 +1,7 @@
 $(document).ready(function() {
     //univeral vars
     var starterGifs = ["borderlands", "call of duty", "world of warcraft"];
-    // localStorage.clear();
-    // localStorage.setItem("saveGif", starterGifs);
     var loopNum = 1
-        // $("#buttonStorage").append(localStorage.getItem("saveGif").split(","));
         //radio buttons
     $("#getOneGif").change(function() {
         loopNum = 1;
@@ -14,17 +11,19 @@ $(document).ready(function() {
     })
     $("#getFiveGifs").change(function() {
             loopNum = 5;
-
         })
         //search button
     $("#searchButton").on("click", function(event) {
         event.preventDefault();
         var userGif = $("#gifInput").val().trim();
-        starterGifs.push(userGif);
-        localStorage.clear();
-        localStorage.setItem("saveGif", starterGifs);
-        // console.log(localStorage.getItem("saveGif").split(",")[0]);
-        gifButtons();
+        if (userGif.length > 0) {
+            starterGifs.push(userGif);
+            localStorage.clear();
+            localStorage.setItem("saveGif", starterGifs);
+            gifButtons();
+        } else {
+            alert("Try searching for something");
+        }
     });
     //call the gifs move the gifs and fav the gifs buttons
     $(document).on("click", ".gif-btn", showGif);
@@ -41,13 +40,10 @@ $(document).ready(function() {
             gifButton.attr("id", localStorage.getItem("saveGif").split(",")[i]);
             gifButton.text(localStorage.getItem("saveGif").split(",")[i]);
             $("#buttonStorage").append(gifButton);
-
         }
-
     }
 
     function showGif() {
-
         $("#theGifZone").empty();
         var gifName = $(this).attr("id");
         var gifQuery = "https://api.giphy.com/v1/gifs/search?q=" + gifName +
@@ -56,7 +52,6 @@ $(document).ready(function() {
             url: gifQuery,
             method: "GET"
         }).then(function(response) {
-            // console.log(response);
             for (var i = 0; i < loopNum; i++) {
                 var gifStorage = $("<div>");
                 var theGif = $("<img>");
@@ -80,9 +75,7 @@ $(document).ready(function() {
                 gifStorage.prepend(rating);
                 if (response.data[i].title.length > 0) {
                     title.text(response.data[i].title);
-                    console.log("test");
                 } else {
-                    console.log("test2");
                     title.remove();
                 }
                 $("#theGifZone").append(gifStorage);
@@ -104,15 +97,11 @@ $(document).ready(function() {
     function favThatGif() {
         var favDiv = $("#div" + this.id);
         $("#userFav").append(favDiv);
-        // $(favDiv).remove();
         this.remove();
     }
 
     function removeFav() {
-        console.log("test");
         $("#userFav").empty();
     }
-
     gifButtons();
-
 })
