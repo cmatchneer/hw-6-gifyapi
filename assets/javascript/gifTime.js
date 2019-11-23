@@ -29,7 +29,7 @@ $(document).ready(function() {
     $(document).on("click", ".gif-btn", showGif);
     $(document).on("click", ".gif", moveThatGif);
     $(document).on("click", ".favBtn", favThatGif);
-    $(document).on("click", "#clearFav", removeFav);
+    $(document).on("click", ".clearFav", removeFav);
 
     // all the functions 
     function gifButtons() {
@@ -96,12 +96,17 @@ $(document).ready(function() {
 
     function favThatGif() {
         var favDiv = $("#div" + this.id);
+        $(this).removeClass("favBtn");
+        $(this).addClass("clearFav")
+        $(this).attr("id", this.id);
+        $(this).text("Remove this Gif");
         $("#userFav").append(favDiv);
-        this.remove();
     }
 
     function removeFav() {
-        $("#userFav").empty();
+        console.log("test");
+        $("#div" + this.id).remove();
+
     }
     gifButtons();
 })

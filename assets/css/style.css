@@ -141,28 +141,24 @@ button:focus {
     position: relative;
 }
 
-#clearFav {
-    position: absolute;
-    top: 115px;
-    left: 480px;
-    background-color: firebrick;
+.clearFav {
+    background-color: red;
     color: gold;
     border: 2px solid goldenrod;
-    text-align: center;
-    margin: 10px auto;
-    margin-top: 10px;
-    box-shadow: 0 5px 5px black;
-    cursor: pointer;
+    position: relative;
+    left: 140px;
+    margin: 0 auto;
+    box-shadow: 0 5px 5px gold;
 }
 
-#clearFav:hover {
+.clearFav:hover {
     cursor: pointer;
     background-color: gold;
     color: firebrick;
     border: 2px solid firebrick;
 }
 
-#clearFav:active {
+.clearFav:active {
     box-shadow: 0 0px 5px black;
     transform: translateY(5px);
 }
