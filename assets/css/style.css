@@ -1,5 +1,6 @@
 body {
     background-color: darkcyan;
+    font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -28,6 +29,7 @@ button:focus {
 }
 
 .jumbotron {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: 0;
     background-color: darkred;
