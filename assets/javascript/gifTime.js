@@ -1,8 +1,10 @@
 $(document).ready(function() {
     //univeral vars
-    var starterGifs = ["borderlands", "call of duty", "world of warcraft"];
+    var starterGifs = [];
     var loopNum = 1
-        //radio buttons
+    console.log(starterGifs);
+
+    //radio buttons
     $("#getOneGif").change(function() {
         loopNum = 1;
     })
