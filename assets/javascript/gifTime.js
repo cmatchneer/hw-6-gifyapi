@@ -1,5 +1,6 @@
 $(document).ready(function() {
     //univeral vars
+
     var starterGifs = [];
     var loopNum = 1
     console.log(starterGifs);
@@ -17,6 +18,9 @@ $(document).ready(function() {
         //search button
     $("#searchButton").on("click", function(event) {
         event.preventDefault();
+        if (localStorage.getItem("saveGif") !== null) {
+            var starterGifs = localStorage.getItem("saveGif").split(",");
+        }
         var userGif = $("#gifInput").val().trim();
         if (userGif.length > 0) {
             starterGifs.push(userGif);
@@ -27,7 +31,10 @@ $(document).ready(function() {
             alert("Try searching for something");
         }
     });
-    //call the gifs move the gifs and fav the gifs buttons
+    $("#clear").on("click", function(event) {
+            localStorage.clear();
+        })
+        //call the gifs move the gifs and fav the gifs buttons
     $(document).on("click", ".gif-btn", showGif);
     $(document).on("click", ".gif", moveThatGif);
     $(document).on("click", ".favBtn", favThatGif);
@@ -36,12 +43,14 @@ $(document).ready(function() {
     // all the functions 
     function gifButtons() {
         $("#buttonStorage").empty();
-        for (var i = 0; i < localStorage.getItem("saveGif").split(",").length; i++) {
-            var gifButton = $("<button>");
-            gifButton.addClass("gif-btn");
-            gifButton.attr("id", localStorage.getItem("saveGif").split(",")[i]);
-            gifButton.text(localStorage.getItem("saveGif").split(",")[i]);
-            $("#buttonStorage").append(gifButton);
+        if (localStorage.getItem("saveGif") !== null) {
+            for (var i = 0; i < localStorage.getItem("saveGif").split(",").length; i++) {
+                var gifButton = $("<button>");
+                gifButton.addClass("gif-btn");
+                gifButton.attr("id", localStorage.getItem("saveGif").split(",")[i]);
+                gifButton.text(localStorage.getItem("saveGif").split(",")[i]);
+                $("#buttonStorage").append(gifButton);
+            }
         }
     }
 
