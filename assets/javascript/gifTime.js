@@ -18,8 +18,9 @@ $(document).ready(function() {
         //search button
     $("#searchButton").on("click", function(event) {
         event.preventDefault();
+
         if (localStorage.getItem("saveGif") !== null) {
-            var starterGifs = localStorage.getItem("saveGif").split(",");
+            starterGifs = localStorage.getItem("saveGif").split(",");
         }
         var userGif = $("#gifInput").val().trim();
         if (userGif.length > 0) {
