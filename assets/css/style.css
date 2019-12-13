@@ -126,6 +126,26 @@ button:focus {
     transform: translateY(5px);
 }
 
+#clear {
+    color: gold;
+    border: 2px solid goldenrod;
+    background-color: firebrick;
+    box-shadow: 0 5px 5px black;
+    margin-bottom: 5px;
+}
+
+#clear:hover {
+    cursor: pointer;
+    background-color: gold;
+    color: firebrick;
+    border: 2px solid firebrick;
+}
+
+#clear:active {
+    box-shadow: 0 0px 5px black;
+    transform: translateY(5px);
+}
+
 #gifNum {
     background-color: firebrick;
     color: gold;
